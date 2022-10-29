@@ -22,10 +22,15 @@ namespace AppQuanLyDanhBa
         {
             var nll = new Model.NhomLienLac
             {
-                TenNhom = txtNhomLienLac.Text,
+                TenNhom = txtTenNhomLienLac.Text,
             };
             NhomLienLacService.AddNhomLienLac(nll);
             DialogResult = DialogResult.OK;
+        }
+
+        private void txtNhomLienLac_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -15,6 +15,10 @@ namespace AppQuanLyDanhBa.Service
             TrungMa = 0,
             ThanhCong = 1,
         }
+        /// <summary>
+        /// lấy tất cả nhóm liên
+        /// </summary>
+        /// <returns></returns>
         public static List<NhomLienLacViewModel> getList()
         {
             var db = new AppDBContext();
@@ -26,6 +30,11 @@ namespace AppQuanLyDanhBa.Service
             return rs;
 
         }
+        /// <summary>
+        /// Thêm nhóm liên lạc
+        /// </summary>
+        /// <param name="nll"></param>
+        /// <returns></returns>
         public static KetQua AddNhomLienLac(NhomLienLac nll)
         {
             var db = new AppDBContext();
@@ -33,17 +42,11 @@ namespace AppQuanLyDanhBa.Service
             db.SaveChanges();
             return KetQua.ThanhCong;
         }
-        /*
-        //Update Sinh Viên
-        public static KetQua UpdataLopHoc(LopHocViewModel lh)
-        {
-            var db = new AppDBContext();
-            var lopHoc = db.LopHocs.Where(e => e.ID == lh.ID).FirstOrDefault();
-            lopHoc.TenLop = lh.TenLop;
-            db.SaveChanges();
-            return KetQua.ThanhCong;
-        }
-       */
+        /// <summary>
+        /// Xóa nhóm liên lạc trường hợp  nhóm liên lạc đó trống
+        /// </summary>
+        /// <param name="lh"></param>
+        /// <returns></returns>
         public static KetQua DeleteNhopLienLac(NhomLienLacViewModel lh)
         {
             var db = new AppDBContext();

@@ -12,6 +12,7 @@ namespace AppQuanLyDanhBa
             InitializeComponent();
             NapDsNhomLienLac();
             NapDsChiTietNhomLienLac();
+            ChiTietLienLac();
         }
         void NapDsNhomLienLac()
         {
@@ -19,12 +20,23 @@ namespace AppQuanLyDanhBa
             nhomLienLacViewModelBindingSource.DataSource = ls;
             dataGridViewNhomLienLac.DataSource = nhomLienLacViewModelBindingSource;
         }
+        void ChiTietLienLac()
+        {
+            var LienLac = selectedChiTietNhomLienlac;
+            if(LienLac != null)
+            {
+                labTenGoi.Text = $"[ {LienLac.TenGoi} ]";
+                labEmail.Text = $"Email: {LienLac.Email}";
+                labDiaChi.Text = $"Địa chỉ: {LienLac.DiaChi}";
+                labSDT.Text = $"Số điện thoại: {LienLac.SDT}";
+            }
+           
+        }
         /// <summary>
         /// nạp ds liên lạc vài gridview 
         /// </summary>
         void NapDsChiTietNhomLienLac()
         {
-
             var ls = ChiTietNhomLienLacService.getList();
             if (selectedNhomLienLac != null)
             {
@@ -32,11 +44,9 @@ namespace AppQuanLyDanhBa
             }
             chiTietNhomLienLacViewModelBindingSource.DataSource = ls;
             dataGridViewChiTiet.DataSource = chiTietNhomLienLacViewModelBindingSource;
-
-
         }
 
-        NhomLienLacViewModel selectedNhomLienLac
+        public NhomLienLacViewModel selectedNhomLienLac
         {
 
             get
@@ -45,7 +55,7 @@ namespace AppQuanLyDanhBa
             }
         }
         //lấy sinh viên chọn trên grid
-        ChiTietNhomLienLacViewModel selectedChiTietNhomLienlac
+        public ChiTietNhomLienLacViewModel selectedChiTietNhomLienlac
         {
 
             get
@@ -58,18 +68,11 @@ namespace AppQuanLyDanhBa
 
         }
 
-
-       
-
+        // sự kiện chọn chi tiết liên lạc
         private void dataGridViewChiTiet_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var LienLac = selectedChiTietNhomLienlac;
-            labTenGoi.Text = $"[ {LienLac.TenGoi} ]";
-            labEmail.Text = $"Email: {LienLac.Email}";
-            labDiaChi.Text = $"Địa chỉ: {LienLac.DiaChi}";
-            labSDT.Text = $"Số điện thoại: {LienLac.SDT}";
-            Console.WriteLine("chán");
 
+            ChiTietLienLac();
 
         }
 
@@ -77,7 +80,7 @@ namespace AppQuanLyDanhBa
         {
 
         }
-
+        // chọn thêm liên lạc
         private void btnThemLienLac_Click(object sender, EventArgs e)
         {
             var f = new FrmThemChiTietLienLac( selectedNhomLienLac );
@@ -91,14 +94,14 @@ namespace AppQuanLyDanhBa
 
         }
 
-  
 
-
+        // sự kiện chọn nhóm liên lạc
         private void dataGridViewNhomLienLac_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             NapDsChiTietNhomLienLac();
         }
 
+        //Thêm liên lạc
         private void btnThemNhom_Click(object sender, EventArgs e)
         {
             var f = new FrmThemNhomLienLac();
@@ -107,8 +110,10 @@ namespace AppQuanLyDanhBa
             
         }
 
+        //Xóa nhóm liên lạc
         private void btnXoaNhom_Click(object sender, EventArgs e)
         {
+            //trường hợp người dùng không chọn nhóm liên lạc nào
             if(selectedNhomLienLac == null)
             {
                 MessageBox.Show("Bạn chưa chọn nhóm liên lạc để xóa!");
@@ -128,6 +133,7 @@ namespace AppQuanLyDanhBa
             }
         }
 
+        // Xóa liên lạc
         private void btnXoaLienlac_Click(object sender, EventArgs e)
         {
             if(selectedChiTietNhomLienlac == null)
@@ -142,5 +148,18 @@ namespace AppQuanLyDanhBa
             }
             
         }
+
+        private void txtSearch_Click(object sender, EventArgs e)
+        {
+        }
+        // tìm kiếm danh bạ theo nhóm được chọn với value được nhập
+        private void txtSeach_TextChanged(object sender, EventArgs e)
+        {           
+            var ls = ChiTietNhomLienLacService.getListByNhomBySearch(txtSeach.Text, selectedNhomLienLac.ID);
+            chiTietNhomLienLacViewModelBindingSource.DataSource = ls;
+            dataGridViewChiTiet.DataSource = chiTietNhomLienLacViewModelBindingSource;
+        }
+
+        
     }
 }

@@ -102,6 +102,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="FrmThemChiTietLienLac.resx">
       <DependentUpon>FrmThemChiTietLienLac.cs</DependentUpon>
@@ -127,6 +128,14 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icon\add_24.png" />
+    <Content Include="Icon\delete_24.png" />
+    <Content Include="Icon\edit_24.png" />
+    <None Include="Resources\edit_24.png" />
+    <None Include="Resources\delete_24.png" />
+    <None Include="Resources\add_24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

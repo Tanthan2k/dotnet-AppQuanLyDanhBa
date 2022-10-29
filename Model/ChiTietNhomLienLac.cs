@@ -15,13 +15,13 @@ namespace AppQuanLyDanhBa.Model
         [StringLength(50)]
         public string TenGoi { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string Email { get; set; }
 
         public int IDNhom { get; set; }
 
-        [StringLength(50)]
+        [Required]
+        [StringLength(12)]
         public string SDT { get; set; }
 
         [StringLength(50)]

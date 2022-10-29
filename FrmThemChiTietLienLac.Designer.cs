@@ -106,7 +106,7 @@ namespace AppQuanLyDanhBa
             this.label4.Size = new System.Drawing.Size(55, 17);
             this.label4.TabIndex = 6;
             this.label4.Text = "Địa chỉ:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            
             // 
             // button1
             // 
@@ -120,6 +120,7 @@ namespace AppQuanLyDanhBa
             // 
             // button2
             // 
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.Location = new System.Drawing.Point(344, 272);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 29);
@@ -143,7 +144,7 @@ namespace AppQuanLyDanhBa
             this.label3.Size = new System.Drawing.Size(76, 17);
             this.label3.TabIndex = 11;
             this.label3.Text = "Tên nhóm:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+           
             // 
             // FrmThemChiTietLienLac
             // 

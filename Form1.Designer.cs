@@ -34,6 +34,7 @@ namespace AppQuanLyDanhBa
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridViewNhomLienLac = new System.Windows.Forms.DataGridView();
+            this.TenNhom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridViewChiTiet = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -49,9 +50,8 @@ namespace AppQuanLyDanhBa
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnThemLienLac = new System.Windows.Forms.ToolStripButton();
             this.btnXoaLienlac = new System.Windows.Forms.ToolStripButton();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.txtSeach = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.TenNhom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenGoiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sDTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,9 +71,9 @@ namespace AppQuanLyDanhBa
             // panel1
             // 
             this.panel1.Controls.Add(this.dataGridViewNhomLienLac);
-            this.panel1.Location = new System.Drawing.Point(3, 39);
+            this.panel1.Location = new System.Drawing.Point(3, 37);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(371, 496);
+            this.panel1.Size = new System.Drawing.Size(357, 498);
             this.panel1.TabIndex = 2;
             // 
             // dataGridViewNhomLienLac
@@ -81,26 +81,36 @@ namespace AppQuanLyDanhBa
             this.dataGridViewNhomLienLac.AllowUserToAddRows = false;
             this.dataGridViewNhomLienLac.AllowUserToDeleteRows = false;
             this.dataGridViewNhomLienLac.AutoGenerateColumns = false;
+            this.dataGridViewNhomLienLac.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewNhomLienLac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewNhomLienLac.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn,
             this.TenNhom});
             this.dataGridViewNhomLienLac.DataSource = this.nhomLienLacViewModelBindingSource;
-            this.dataGridViewNhomLienLac.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewNhomLienLac.Location = new System.Drawing.Point(3, 0);
             this.dataGridViewNhomLienLac.Name = "dataGridViewNhomLienLac";
             this.dataGridViewNhomLienLac.ReadOnly = true;
             this.dataGridViewNhomLienLac.RowHeadersWidth = 51;
             this.dataGridViewNhomLienLac.RowTemplate.Height = 24;
-            this.dataGridViewNhomLienLac.Size = new System.Drawing.Size(365, 493);
+            this.dataGridViewNhomLienLac.Size = new System.Drawing.Size(354, 498);
             this.dataGridViewNhomLienLac.TabIndex = 0;
             this.dataGridViewNhomLienLac.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNhomLienLac_CellContentClick);
+            // 
+            // TenNhom
+            // 
+            this.TenNhom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenNhom.DataPropertyName = "TenNhom";
+            this.TenNhom.HeaderText = "Tên nhóm liên lạc";
+            this.TenNhom.MinimumWidth = 6;
+            this.TenNhom.Name = "TenNhom";
+            this.TenNhom.ReadOnly = true;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dataGridViewChiTiet);
-            this.panel2.Location = new System.Drawing.Point(385, 37);
+            this.panel2.Location = new System.Drawing.Point(366, 37);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(743, 250);
+            this.panel2.Size = new System.Drawing.Size(762, 290);
             this.panel2.TabIndex = 3;
             // 
             // dataGridViewChiTiet
@@ -108,6 +118,7 @@ namespace AppQuanLyDanhBa
             this.dataGridViewChiTiet.AllowUserToAddRows = false;
             this.dataGridViewChiTiet.AllowUserToDeleteRows = false;
             this.dataGridViewChiTiet.AutoGenerateColumns = false;
+            this.dataGridViewChiTiet.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewChiTiet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewChiTiet.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tenGoiDataGridViewTextBoxColumn,
@@ -122,7 +133,7 @@ namespace AppQuanLyDanhBa
             this.dataGridViewChiTiet.RowHeadersWidth = 51;
             this.dataGridViewChiTiet.RowTemplate.Height = 24;
             this.dataGridViewChiTiet.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewChiTiet.Size = new System.Drawing.Size(743, 250);
+            this.dataGridViewChiTiet.Size = new System.Drawing.Size(762, 290);
             this.dataGridViewChiTiet.TabIndex = 3;
             this.dataGridViewChiTiet.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewChiTiet_CellContentClick);
             // 
@@ -144,7 +155,7 @@ namespace AppQuanLyDanhBa
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(423, 384);
+            this.label1.Location = new System.Drawing.Point(390, 390);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(680, 17);
             this.label1.TabIndex = 20;
@@ -156,7 +167,7 @@ namespace AppQuanLyDanhBa
             // 
             this.labSDT.AutoSize = true;
             this.labSDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labSDT.Location = new System.Drawing.Point(421, 503);
+            this.labSDT.Location = new System.Drawing.Point(388, 509);
             this.labSDT.Name = "labSDT";
             this.labSDT.Size = new System.Drawing.Size(132, 25);
             this.labSDT.TabIndex = 19;
@@ -166,7 +177,7 @@ namespace AppQuanLyDanhBa
             // 
             this.labEmail.AutoSize = true;
             this.labEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labEmail.Location = new System.Drawing.Point(421, 461);
+            this.labEmail.Location = new System.Drawing.Point(388, 467);
             this.labEmail.Name = "labEmail";
             this.labEmail.Size = new System.Drawing.Size(71, 25);
             this.labEmail.TabIndex = 18;
@@ -176,7 +187,7 @@ namespace AppQuanLyDanhBa
             // 
             this.labDiaChi.AutoSize = true;
             this.labDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labDiaChi.Location = new System.Drawing.Point(421, 421);
+            this.labDiaChi.Location = new System.Drawing.Point(388, 427);
             this.labDiaChi.Name = "labDiaChi";
             this.labDiaChi.Size = new System.Drawing.Size(82, 25);
             this.labDiaChi.TabIndex = 17;
@@ -186,7 +197,7 @@ namespace AppQuanLyDanhBa
             // 
             this.labTenGoi.AutoSize = true;
             this.labTenGoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labTenGoi.Location = new System.Drawing.Point(419, 347);
+            this.labTenGoi.Location = new System.Drawing.Point(386, 353);
             this.labTenGoi.Name = "labTenGoi";
             this.labTenGoi.Size = new System.Drawing.Size(71, 38);
             this.labTenGoi.TabIndex = 16;
@@ -203,7 +214,7 @@ namespace AppQuanLyDanhBa
             this.toolStripSeparator1,
             this.btnThemLienLac,
             this.btnXoaLienlac,
-            this.toolStripTextBox1,
+            this.txtSeach,
             this.toolStripLabel1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -257,12 +268,13 @@ namespace AppQuanLyDanhBa
             this.btnXoaLienlac.Text = "Xóa liên lạc";
             this.btnXoaLienlac.Click += new System.EventHandler(this.btnXoaLienlac_Click);
             // 
-            // toolStripTextBox1
+            // txtSeach
             // 
-            this.toolStripTextBox1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(300, 27);
+            this.txtSeach.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.txtSeach.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtSeach.Name = "txtSeach";
+            this.txtSeach.Size = new System.Drawing.Size(200, 27);
+            this.txtSeach.TextChanged += new System.EventHandler(this.txtSeach_TextChanged);
             // 
             // toolStripLabel1
             // 
@@ -271,15 +283,6 @@ namespace AppQuanLyDanhBa
             this.toolStripLabel1.Size = new System.Drawing.Size(119, 24);
             this.toolStripLabel1.Text = "Nhập từ cần tìm:";
             // 
-            // TenNhom
-            // 
-            this.TenNhom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenNhom.DataPropertyName = "TenNhom";
-            this.TenNhom.HeaderText = "Tên nhóm liên lạc";
-            this.TenNhom.MinimumWidth = 6;
-            this.TenNhom.Name = "TenNhom";
-            this.TenNhom.ReadOnly = true;
-            // 
             // tenGoiDataGridViewTextBoxColumn
             // 
             this.tenGoiDataGridViewTextBoxColumn.DataPropertyName = "TenGoi";
@@ -287,7 +290,7 @@ namespace AppQuanLyDanhBa
             this.tenGoiDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.tenGoiDataGridViewTextBoxColumn.Name = "tenGoiDataGridViewTextBoxColumn";
             this.tenGoiDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tenGoiDataGridViewTextBoxColumn.Width = 200;
+            this.tenGoiDataGridViewTextBoxColumn.Width = 85;
             // 
             // emailDataGridViewTextBoxColumn
             // 
@@ -296,7 +299,7 @@ namespace AppQuanLyDanhBa
             this.emailDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             this.emailDataGridViewTextBoxColumn.ReadOnly = true;
-            this.emailDataGridViewTextBoxColumn.Width = 200;
+            this.emailDataGridViewTextBoxColumn.Width = 71;
             // 
             // sDTDataGridViewTextBoxColumn
             // 
@@ -332,7 +335,7 @@ namespace AppQuanLyDanhBa
             this.ClientSize = new System.Drawing.Size(1155, 598);
             this.Controls.Add(this.panel3);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "CHƯƠNG TRÌNH QUẢN LÝ DANH BẠ - Võ Tấn Thân";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhomLienLac)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -367,7 +370,6 @@ namespace AppQuanLyDanhBa
         private System.Windows.Forms.Label labTenGoi;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.BindingSource nhomLienLacViewModelBindingSource;
         private System.Windows.Forms.DataGridView dataGridViewNhomLienLac;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
@@ -375,6 +377,7 @@ namespace AppQuanLyDanhBa
         private System.Windows.Forms.DataGridViewTextBoxColumn tenGoiDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sDTDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripTextBox txtSeach;
     }
 }
 

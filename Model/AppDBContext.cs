@@ -8,7 +8,7 @@ namespace AppQuanLyDanhBa.Model
     public partial class AppDBContext : DbContext
     {
         public AppDBContext()
-            : base("name=AppDBContext1")
+            : base("name=AppDBContext2")
         {
         }
 
